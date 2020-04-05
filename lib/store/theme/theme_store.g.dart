@@ -9,30 +9,30 @@ part of 'theme_store.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$ThemeStore on _ThemeStore, Store {
-  final _$themeStoreAtom = Atom(name: '_ThemeStore.themeStore');
+  final _$themeModeAtom = Atom(name: '_ThemeStore.themeMode');
 
   @override
-  ThemeData get themeStore {
-    _$themeStoreAtom.context.enforceReadPolicy(_$themeStoreAtom);
-    _$themeStoreAtom.reportObserved();
-    return super.themeStore;
+  ThemeMode get themeMode {
+    _$themeModeAtom.context.enforceReadPolicy(_$themeModeAtom);
+    _$themeModeAtom.reportObserved();
+    return super.themeMode;
   }
 
   @override
-  set themeStore(ThemeData value) {
-    _$themeStoreAtom.context.conditionallyRunInAction(() {
-      super.themeStore = value;
-      _$themeStoreAtom.reportChanged();
-    }, _$themeStoreAtom, name: '${_$themeStoreAtom.name}_set');
+  set themeMode(ThemeMode value) {
+    _$themeModeAtom.context.conditionallyRunInAction(() {
+      super.themeMode = value;
+      _$themeModeAtom.reportChanged();
+    }, _$themeModeAtom, name: '${_$themeModeAtom.name}_set');
   }
 
   final _$_ThemeStoreActionController = ActionController(name: '_ThemeStore');
 
   @override
-  void switchTheme() {
+  void switchTheme(ThemeMode mode) {
     final _$actionInfo = _$_ThemeStoreActionController.startAction();
     try {
-      return super.switchTheme();
+      return super.switchTheme(mode);
     } finally {
       _$_ThemeStoreActionController.endAction(_$actionInfo);
     }
@@ -40,7 +40,7 @@ mixin _$ThemeStore on _ThemeStore, Store {
 
   @override
   String toString() {
-    final string = 'themeStore: ${themeStore.toString()}';
+    final string = 'themeMode: ${themeMode.toString()}';
     return '{$string}';
   }
 }

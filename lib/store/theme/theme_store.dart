@@ -8,16 +8,8 @@ class ThemeStore = _ThemeStore with _$ThemeStore;
 abstract class _ThemeStore with Store {
   //Let's generate theme_store.g.dart file using a command.
   @observable
-  ThemeData themeStore = ThemeData.fallback();
+  ThemeMode themeMode = ThemeMode.system;
 
   @action
-  void switchTheme() {
-    if (themeStore == ThemeData.fallback()) {
-      themeStore = ThemeData.dark();
-    } else {
-      themeStore = ThemeData.fallback();
-    }
-
-    //Let's updated generated file.
-  }
+  void switchTheme(ThemeMode mode) => themeMode = mode;
 }
